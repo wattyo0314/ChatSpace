@@ -2,17 +2,17 @@
 ## usersテーブル
 |Column|Type|Options|
 |------|----|-------|
-|email|string|null: false|
-|password|string|null: false|
-|password-confirm|string|null: false|
-|username|string|null: false|
+|email|string|null: false, unique: true|
+|password|string|null: false, unique: true|
+|password-confirm|string|null: false, unique: true|
+|username|string|null: false, unique: true|
 ### Association
 - has_many :groups,  through:  :users_groups
 
 ## groupsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|group-name|text|null: false|
+|group-name|text|null: false, unique: true|
 ### Association
 - has_many :users,  through:  :users_groups
 - has_many :chats
