@@ -1,0 +1,165 @@
+* {
+  box-sizing: border-box;
+}
+
+.wrapper {
+  display: flex;
+  height: 100vh;
+  .sidebar {
+    background-color: #253141;
+    width: 300px;
+    &__side-header {
+      align-items: center;
+      background-color: #253141;
+      display: flex;
+      height: 100px;
+      justify-content: center;
+      width: 300px;
+      &__side-box {
+        align-items: center;
+        display: flex;
+        height: 20px;
+        justify-content: space-between;
+        width: 260px;
+        &__user-name {
+          color: #d8d8d8;
+          font-size: 16px;
+        }
+        &__icons {
+          display: flex;
+          height: 20px;
+          justify-content: flex-end;
+          text-decoration: none;
+          width: 60px;
+          &__btn {
+            color: #ffffff;
+            &__edit {
+              padding-right: 5px;
+            }
+          }
+        }
+      }
+    }
+    &__group-list {
+      background-color: #2f3e51;
+      color: #ffffff;
+      display: flex;
+      flex-direction: column;
+      font-weight: bold;
+      height: calc(100vh - 100px);
+      align-items: center;
+      padding-top: 20px;
+      width: 300px;
+      &__first-group {
+        font-size: 15px;
+        margin-bottom: 5px;
+        width: 260px;
+      }
+      &__current-message {
+        font-size: 11px;
+        margin-bottom: 40px;
+        width: 260px;
+      }
+
+    }
+  }
+
+  .main-chat {
+    background-color: #ffffff;
+    width: calc(100vw - 300px);
+    &__group-info {
+      height: 100px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0px 40px;
+      &__left-box {
+        &__current-group {
+        color: #333333;
+        line-height: 70px;
+        }
+        &__member-list {
+          color: #999999;
+        }
+      }
+      &__edit-btn {
+        color: #38aef0;
+        font-size: 16px;
+        padding: 28px 20px;
+      }
+    }
+    &__message-list {
+    height: calc(100vh - 190px);
+    background-color: #fafafa;
+      &__old {
+        padding: 35px 0 0 40px;
+        &__info {
+          display: flex;
+          &__user-name {
+            @include user-name();
+          }
+          &__date {
+            @include date();
+          }
+        }
+        &__message {
+          @include message();
+        }
+      }
+      &__new {
+        padding-left: 40px;
+        &__info {
+          display: flex;
+          &__user-name {
+            @include user-name();
+          }
+          &__date {
+            @include date();
+          }
+        }
+        &__message {
+          @include message();
+        }
+
+      }
+    }
+    &__form {
+      background-color: #d2d2d2;
+      height: 90px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      &__new-message {
+        display: flex;
+        margin: 0 40px;
+        width: 100%;
+        &__text {
+        padding: 0 10px;
+        margin-right: 15px;
+        width: 100%;
+        border-style: none;
+        height: 50px;
+        }
+        &__btn {
+        position: relative;
+          &__image {
+          position: absolute;
+          bottom: 15px;
+          right: 25px;
+        }
+          &__file {
+            display: none;
+          }
+        }
+        &__send {
+          padding: 0 30px;
+          background-color: #38aef0;
+          font-size: 16px;
+          color: #fff;
+          line-height: 32px;
+          border-style: none;
+        }
+      }
+  }
+  }
+}
