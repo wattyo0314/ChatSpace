@@ -2,7 +2,7 @@
   .sidebar__side-header
     .sidebar__side-header__side-box
       %p.sidebar__side-header__side-box__user-name
-      = current_user.name
+        = current_user.name
       %ul.sidebar__side-header__side-box__icons
         = link_to "#", class: "sidebar__side-header__side-box__icons__btn" do
           = icon('fas', 'edit', class: 'sidebar__side-header__side-box__icons__btn__edit')
