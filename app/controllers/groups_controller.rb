@@ -9,7 +9,6 @@ class GroupsController < ApplicationController
   # => app/views/groups/new.html.haml
   
   # POST /groups
-  # => app/views/groups/create.html.haml
   def create
     @group = Group.new(group_params)
     if @group.save
@@ -17,12 +16,28 @@ class GroupsController < ApplicationController
     else
       render :new
     end
+
+  # GET /groups/:id/edit
+  def edit
+    @group = Group.find(params[:id])
   end
+  # => app/views/groups/edit.html.haml
+
+  # PATCH /groups/:id
+  def update
+    @group = Group.find(params[:id])
+    if @group.update(group_params)
+      redirect_to root_path, notice: 'グループを更新しました'
+    else
+      render :edit
+    end
+  end
+end
 
   private
 
   def group_params
-    params.require.(:group).permit(:name, :user_ids:[])
+    params.require(:group).permit(:name, user_ids: [] )
   end
 
 
