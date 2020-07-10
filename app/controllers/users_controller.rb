@@ -1,8 +1,10 @@
 class UsersController < ApplicationController
-
+  # GET /users/:id/edit
   def edit
   end
+  # => app/views/users/eidt.html.haml
 
+  # PATCH /users/:id
   def update
     if current_user.update(user_params)
       redirect_to root_path
