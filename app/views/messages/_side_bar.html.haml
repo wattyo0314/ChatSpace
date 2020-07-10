@@ -11,7 +11,10 @@
 
   .sidebar__group-list
     %h3.sidebar__group-list__first-group
-      techcamp
-    %p.sidebar__group-list__current-message
-      まだメッセージはありません
+      -current_user.groups.each do |group|
+        = link_to "#" do
+          .sidebar__group-list__first-group__name
+            = group.name
+          %p.sidebar__group-list__first-group__current-message
+            まだメッセージはありません
 
