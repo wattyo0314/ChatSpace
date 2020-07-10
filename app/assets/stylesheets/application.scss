@@ -1,7 +1,9 @@
 @import "reset";
 @import "font-awesome-sprockets";
 @import "font-awesome";
-@import "date";
 @import "user-name";
 @import "message";
+@import "date";
+@import "modules/user";
 @import "modules/messages";
+@import "modules/flash";
