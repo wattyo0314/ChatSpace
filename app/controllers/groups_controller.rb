@@ -1,9 +1,5 @@
 class GroupsController < ApplicationController
 
-  def index
-    
-  end
-  
   # GET /groups/new
   def new
     @group = Group.new
