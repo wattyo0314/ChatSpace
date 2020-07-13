@@ -4,14 +4,17 @@
       %p.sidebar__side-header__side-box__user-name
         = current_user.name
       %ul.sidebar__side-header__side-box__icons
-        = link_to "#", class: "sidebar__side-header__side-box__icons__btn" do
+        = link_to new_group_path, class: "sidebar__side-header__side-box__icons__btn" do
           = icon('fas', 'edit', class: 'sidebar__side-header__side-box__icons__btn__edit')
         = link_to edit_user_path(current_user), class: "sidebar__side-header__side-box__icons__btn" do
           = icon('fas', 'cog', class: 'sidebar__side-header__side-box__icons__btn__cog')
 
   .sidebar__group-list
     %h3.sidebar__group-list__first-group
-      techcamp
-    %p.sidebar__group-list__current-message
-      まだメッセージはありません
+      -current_user.groups.each do |group|
+        = link_to group_messages_path(group), class: 'White' do
+          .sidebar__group-list__first-group__name
+            = group.name
+          %p.sidebar__group-list__first-group__current-message
+            = group.show_last_message
 

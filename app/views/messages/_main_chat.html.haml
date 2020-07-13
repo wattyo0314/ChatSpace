@@ -1,33 +1,28 @@
-.main-chat
-  .main-chat__group-info
-    .main-chat__group-info__left-box
-      .main-chat__group-info__left-box__current-group
-        test
-      %p.main-chat__group-info__left-box__member-list
-        Member : masa
-    = link_to "#", class: "main-chat__group-info__edit-btn" do
-      edit
-  .main-chat__message-list
-    .main-chat__message-list__old
-      %ul.main-chat__message-list__old__info
-        %li.main-chat__message-list__old__info__user-name
-          masa
-        %li.main-chat__message-list__old__info__date
-          2019/11/20(Wed) 17:43:01
-      .main-chat__message-list__old__message
-        おはよう！
-    .main-chat__message-list__new
-      %ul.main-chat__message-list__new__info
-        %li.main-chat__message-list__new__info__user-name
-          masa
-        %li.main-chat__message-list__new__info__date
-          2019/11/20(wed) 17:43:34
-      .main-chat__message-list__new__message
-        今日は夜から雨
-  .main-chat__form
-    %form.main-chat__form__new-message
-      %input.main-chat__form__new-message__text{placeholder: "type a message", type: "text"}
-      %label{class: "main-chat__form__new-message__btn"}
-        = icon('fas', 'image', class: 'main-chat__form__new-message__btn__image' )
-        %input{type: "file", class: 'main-chat__form__new-message__btn__file'}
-      %input{type: "submit", value: "Send", class: 'main-chat__form__new-message__send'}
+.chat
+  .header
+    .left-header
+      .left-header__title
+        = @group.name
+      %ul.left-header__members
+        Member：
+        %li.member
+        -@group.users.each do |user|
+          %ul
+            %li.chat-group-information__member__name
+              = user.name + " "
+    .right-header
+      .right-header__button
+        = link_to "Edit", edit_group_path(@group), class: 'Edit'
+        -# = link_to edit_group_path(@group)do
+        -#   修正ボタン
+  .messages
+    = render @messages
+
+  .Footer
+    = form_with model: [@group, @message], html: {class: "Form"}, local: true do |f|
+      .Form__contents
+        = f.text_field :content, class: 'Form__contents__inputContent', placeholder: 'type a message'
+        = f.label :image, class: 'Form__contents__inputImage' do
+          = icon('far', 'image', class: 'Form__contents__inputImage__icon')
+          = f.file_field :image, class: 'Hidden'
+        = f.submit 'Send', class: 'Form__contents__submit'
