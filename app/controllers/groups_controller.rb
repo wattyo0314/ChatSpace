@@ -1,5 +1,8 @@
 class GroupsController < ApplicationController
 
+  def index
+  end
+
   # GET /groups/new
   def new
     @group = Group.new
@@ -7,7 +10,7 @@ class GroupsController < ApplicationController
     # グループを新規作成するときはログインしているユーザーを加入させるため。
   end
   # => app/views/groups/new.html.haml
-  
+
   # POST /groups
   def create
     @group = Group.new(group_params)
@@ -16,7 +19,7 @@ class GroupsController < ApplicationController
     else
       render :new
     end
-
+  end
   # GET /groups/:id/edit
   def edit
     @group = Group.find(params[:id])
@@ -27,18 +30,16 @@ class GroupsController < ApplicationController
   def update
     @group = Group.find(params[:id])
     if @group.update(group_params)
-      redirect_to root_path, notice: 'グループを更新しました'
+      redirect_to groups_path(@group), notice: 'グループを更新しました'
     else
       render :edit
     end
   end
-end
 
   private
 
   def group_params
     params.require(:group).permit(:name, user_ids: [] )
   end
-
 
 end

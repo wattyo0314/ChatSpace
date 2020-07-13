@@ -16,7 +16,7 @@
     .SettingGroupForm__rightField
       / グループ作成機能の追加時はここにcollection_check_boxesの記述を入れてください
       = f.collection_check_boxes :user_ids, User.all, :id, :name
-      / この部分はインクリメンタルサーチ（ユーザー追加の非同期化)のときに使用します
+      / この部分はインクリメンタルサーチ（ユーザー追加の非同期化のときに使用します
   .SettingGroupForm__field
     .SettingGroupForm__leftField
     .SettingGroupForm__rightField
