@@ -4,7 +4,7 @@
 |------|----|-------|
 |email|string|null: false, unique: true|
 |password|string|null: false, unique: true|
-|password_confirm|string|null: false, unique: true|
+|password_confirmation|string|null: false, unique: true|
 |name|string|null: false, unique: true|
 ### Association
 - has_many :groups,  through:  :users_groups
@@ -32,7 +32,7 @@
 ## chatsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|text|text|
+|content|text|
 |image|text|
 |group_id|integer|null: false, foreign_key: true|
 |user_id|integer|null: false, foreign_key: true|
