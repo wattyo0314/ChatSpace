@@ -56,10 +56,6 @@
         .done(function(data){
           console.log(data)
           let html = buildHTML(data);
-          $('.messages').append(html);
-          $('form')[0].reset();
-          $('.messages').animate({ scrollTop: $('.messages')[0].scrollHeight});
-          // $('.Form__contents__inputContent').reset('');
           $('.Form__contents__submit').prop('disabled', false);
         })
         .fail(function() {
