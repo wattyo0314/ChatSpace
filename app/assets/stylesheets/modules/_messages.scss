@@ -120,20 +120,24 @@
         background-color: #fafafa;
         width: calc(100vw - 300px);
         overflow: scroll;
-        .message {
-          padding: 35px 0 0 40px;
-          .upper-message {
-            display: flex;
-            &__user-name {
-              @include user-name();
+        padding-top: 20px;
+        padding-left: 40px;
+          .message {
+            padding-bottom: 40px;
+            .upper-message {
+              display: flex;
+              &__user-name {
+                @include user-name();
+              }
+              &__date {
+                @include date();
+              }
             }
-            &__date {
-              @include date();
+            .lower-message {
+              &__content {
+                @include lower-message();
+              }
             }
-          }
-          .lower-message {
-            @include lower-message();
-          }
         }
 
       }
