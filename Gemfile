@@ -71,4 +71,4 @@ gem 'carrierwave', '~> 2.0'
 gem 'mini_magick'
 gem 'jquery-rails'
 gem 'unicorn', '5.4.1'
-
+gem 'fog-aws'
